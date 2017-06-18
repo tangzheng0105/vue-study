@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>自定义组件1</title>
+</head>
+<body>
+    <h1>自定义组件1</h1>
+    <hr>
+    <div id="app">
+        <tangzheng></tangzheng>
+        <yxh></yxh>
+    </div>
+
+    <script type="text/javascript">
+        Vue.component('tangzheng', {
+            template: `<div style="color:red">我是全局的tangzheng组件</div>`
+        })
+        var app=new Vue({
+            el:'#app',
+            components: {
+                "yxh":{
+                    template: `<div style="color:green">我是局部的yxh组件</div>`
+                }
+            }
+        })
+    </script>
+</body>
+</html>

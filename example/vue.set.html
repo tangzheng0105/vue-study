@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Vue.set全局操作</title>
+</head>
+<body>
+    <h1>全局操作</h1>
+    <hr>
+    <div id="app">
+        {{count}}
+    </div>
+
+    <script type="text/javascript">
+        var outData = {
+            count: 1,
+            goods: 'car'
+        }
+        var app=new Vue({
+            el:'#app',
+            data: outData
+        })
+    </script>
+</body>
+</html>
