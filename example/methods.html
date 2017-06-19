@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Helloworld</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <hr>
+    <div id="app">
+        {{a}}
+        <button @click="add(5, $event)">add</button>
+        <p><btn @click.native="add(3)"></btn></p>
+    </div>
+
+    <button onclick="app.add(7)">OUTside btn</button>
+
+    <script type="text/javascript">
+        var btn = {
+            template:`<button>组件add</button>`
+        }    
+        var app=new Vue({
+            el:'#app',
+            data:{
+                a:1
+            },
+            components: {
+                'btn': btn
+            },
+            methods: {
+                add:function (num, event) {
+                    if(num) {
+                        this.a = this.a + num;
+                    } else {
+                        this.a++;
+                    }
+                    console.log(event);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

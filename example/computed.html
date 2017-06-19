@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Helloworld</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <hr>
+    <div id="app">
+        <p>{{newPrice}}</p>
+        <ul>
+            <li v-for="item in resersNews">{{item.title}}{{item.date}}</li>
+        </ul>
+
+    </div>
+
+    <script type="text/javascript">
+        var newList = [
+            {title: '伦敦市长称货车冲撞事件为恐怖袭击 已致1死10伤',date:'2017/3/21'},
+            {title: '女选手跳远时假发掉落 裁判竟按假发位置算成绩？',date:'2017/3/22'},
+            {title: '英国脱欧事务大臣赴比利时开启脱欧谈判',date:'2017/3/23'},
+            {title: '安徽3名警务人员送流浪汉回家遇车祸 车上4人全遇难',date:'2017/3/24'},
+            {title: '台“侨委”赴陆谈祖国统一 绿营跳脚叫嚣撤职',date:'2017/3/25'},
+            {title: '平台停止补贴苹果抽佣 网红如何继续保持先进',date:'2017/3/26'}
+        ];
+        var app=new Vue({
+            el:'#app',
+            data:{
+                price: 100,
+                newList:newList
+            },
+            computed: {
+                newPrice:function() {
+                    return this.price = "$" + this.price + "  dollor";
+                },
+                resersNews:function() {
+                    return this.newList.reverse();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

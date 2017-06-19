@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Helloworld</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <hr>
+    <div id="app">
+        <p>今日温度： {{temp}} 度</p>
+        <p>穿衣建议： {{wear}}</p>
+        <p><button @click="tempAdd">升高温度</button></p>
+        <p><button @click="tempMinus">降低温度</button></p>
+    </div>
+
+    <script type="text/javascript">
+        var wearArray = ['T恤短袖', '夹克长裙', '羽绒服棉服']
+        var app=new Vue({
+            el:'#app',
+            data:{
+                temp: 14,
+                wear: '夹克长裙'
+            },
+            methods: {
+                tempAdd:function() {
+                    this.temp+=5
+                },
+                tempMinus:function() {
+                    this.temp-=5
+                },
+            },
+            watch: {
+                temp:function(newVal, oldVal) {
+                    if(newVal>=26) {
+                        this.wear = wearArray[0]
+                    } else if (newVal >=0) {
+                        this.wear = wearArray[1]
+                    } else (
+                        this.wear = wearArray[2]
+                    )
+                }
+            }
+        })
+    </script>
+</body>
+</html>
